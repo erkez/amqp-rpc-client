@@ -1,13 +1,13 @@
 {
   "name": "amqp-rpc-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Production ready, simple, promise-based and callback compatible AMQP RPC client.",
   "main": "./lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --recursive -R min"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,12 @@
   },
   "homepage": "https://github.com/erkez/amqp-rpc-client#readme",
   "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-as-promised": "^5.1.0",
     "jshint": "^2.8.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.4",
+    "sinon-chai": "^2.8.0"
   },
   "dependencies": {
     "amqplib": "^0.3.2",
