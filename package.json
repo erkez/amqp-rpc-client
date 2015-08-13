@@ -1,0 +1,38 @@
+{
+  "name": "amqp-rpc-client",
+  "version": "1.0.0",
+  "description": "Production ready, simple, promise-based and callback compatible AMQP RPC client.",
+  "main": "./lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erkez/amqp-rpc-client.git"
+  },
+  "keywords": [
+    "amqp",
+    "rabbit",
+    "rpc",
+    "client",
+    "promise"
+  ],
+  "author": "Alan Heitkotter <heitkotter@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erkez/amqp-rpc-client/issues"
+  },
+  "homepage": "https://github.com/erkez/amqp-rpc-client#readme",
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "amqplib": "^0.3.2",
+    "bluebird": "^2.9.34",
+    "node-uuid": "^1.4.3"
+  }
+}
