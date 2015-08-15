@@ -53,6 +53,10 @@ RpcClient.defaultResponseMessageHandler = function(channel, fulfill, reject, run
     assert(running == null || typeof running === 'function');
 
     return function jsonMessageHandlerParser(message) {
+        if (!message) {
+            return reject('Consumer was canceled');
+        }
+    
         var content = JSON.parse(message.content.toString());
 
         if (running && content.state === 'running') {

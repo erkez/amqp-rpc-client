@@ -85,14 +85,11 @@ describe('RpcClient', function() {
                 var responseMessage = new Buffer(JSON.stringify(content));
                 var responseOptions = { correlationId: correlationId };
 
-                channel
-                    .call('sendToQueue', queue, responseMessage, responseOptions)
-                    .then(function() {
-                        return channel.call('ack', message);
-                    });
+                channel.call('sendToQueue', queue, responseMessage, responseOptions);
+                channel.call('ack', message);
             };
 
-            channel
+            return channel
                 .tap(function(channel) {
                     return channel.assertQueueAsync(queueName, {exclusive: true, autoDelete: true});
                 })
