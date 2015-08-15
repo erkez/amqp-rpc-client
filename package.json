@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha --recursive -R min"
+    "test": "mocha --recursive -t 30000 -R min",
+    "test-coverage": "mocha --recursive -t 30000 --require blanket -R html-cov 1> coverage.html"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,17 @@
     "url": "https://github.com/erkez/amqp-rpc-client/issues"
   },
   "homepage": "https://github.com/erkez/amqp-rpc-client#readme",
+  "config": {
+    "blanket": {
+      "pattern": "lib",
+      "data-cover-never": [
+        "node_modules",
+        "test"
+      ]
+    }
+  },
   "devDependencies": {
+    "blanket": "^1.1.7",
     "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",
     "jshint": "^2.8.0",

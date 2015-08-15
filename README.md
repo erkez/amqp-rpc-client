@@ -35,7 +35,7 @@ The publish method stringifies message and converts to Buffer, if not already Bu
 ```
 RpcClient.defaultPublishMessageTransformer = function(message) {
     if (message instanceof Buffer) {
-        return Buffer;
+        return message;
     } else {
         var stringifiedMessage = JSON.stringify(message);
         return new Buffer(stringifiedMessage);

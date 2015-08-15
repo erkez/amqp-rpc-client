@@ -21,6 +21,11 @@ afterEach('Setup Sinon sandbox', function() {
 });
 
 
+beforeEach('AMQP Test Host', function() {
+    this.host = process.env.AMQP_TEST_HOST;
+});
+
+
 module.exports = {
     chai: chai,
     sinon: sinon,
