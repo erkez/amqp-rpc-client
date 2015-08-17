@@ -1,6 +1,6 @@
 'use strict';
 
-require('./common');
+var common = require('./common');
 var ConnectionFactory = require('../lib/ConnectionFactory');
 var RpcClient = require('../lib');
 
@@ -116,6 +116,15 @@ describe('RpcClient', function() {
                 .catch(function(error) {
                     error.should.have.property('state', 'rejected');
                 });
+        });
+
+        it('should correctly publish message and receive response using callback', function(done) {
+            var message = {value: 2};
+            this.client.publish(this.queue, message, function(error, response) {
+                common.should.not.exist(error);
+                response.value.should.equal(4);
+                done();
+            });
         });
 
     });
